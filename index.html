@@ -795,6 +795,7 @@
     </audio>
 
     <!-- JavaScript -->
+    <!-- JavaScript -->
     <script>
         const menuBtn = document.getElementById('menuBtn');
         const mobileMenu = document.getElementById('mobileMenu');
@@ -830,17 +831,22 @@
             });
         }, { threshold: 0.1 });
 
-        function animate() {
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-            if (particles.length < 50) particles.push(new Particle());
-            particles.forEach((p, i) => {
-                p.update();
-                p.draw();
-                if (p.y > canvas.height) particles.splice(i, 1);
-            });
-            requestAnimationFrame(animate);
-        }
-        animate();
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+        let isPlaying = false;
+        const musicBtn = document.getElementById('musicBtn');
+        const bgMusic = document.getElementById('bgMusic');
+
+        musicBtn.addEventListener('click', () => {
+            if (isPlaying) {
+                bgMusic.pause();
+                musicBtn.textContent = '🎵';
+            } else {
+                bgMusic.play().catch(e => console.log('Audio failed:', e));
+                musicBtn.textContent = '🎶';
+            }
+            isPlaying = !isPlaying;
+        });
     </script>
 </body>
 </html>
