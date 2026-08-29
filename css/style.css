@@ -1,15 +1,14 @@
-/* CSS Variables - Light Theme (Like Benedict's) */
+/* CSS Variables - Refined Light Glass Theme */
 :root {
-    --bg-color: #f5f5f0;
-    --bg-light: #fafaf8;
+    --bg-color: transparent;
     --text-dark: #1a1a1a;
-    --text-medium: #4a4a4a;
-    --text-light: #666;
+    --text-medium: #333333;
+    --text-light: #555555;
     --accent: #d4af37;
     --accent-light: #e5c158;
-    --glass-bg: rgba(255, 255, 255, 0.7);
-    --glass-border: rgba(255, 255, 255, 0.5);
-    --glass-shadow: 0 4px 24px rgba(0, 0, 0, 0.06), inset 0 1px 0 rgba(255, 255, 255, 0.8);
+    --glass-bg: rgba(255, 255, 255, 0.75);
+    --glass-border: rgba(255, 255, 255, 0.6);
+    --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.9);
 }
 
 /* Reset */
@@ -26,12 +25,12 @@ html {
 body {
     font-family: 'Inter', sans-serif;
     color: var(--text-dark);
-    background: var(--bg-color);
+    background: #000; /* Fallback base before video renders */
     overflow-x: hidden;
     line-height: 1.6;
 }
 
-/* Video Background - CLEARLY VISIBLE */
+/* Video Background - 100% CLEAR VISIBILITY */
 .video-background {
     position: fixed;
     top: 0;
@@ -52,7 +51,7 @@ body {
     left: 50%;
     transform: translate(-50%, -50%);
     object-fit: cover;
-    /* NO FILTER - Image is clear and visible */
+    filter: brightness(1); /* Original video brightness */
 }
 
 .video-fallback {
@@ -62,26 +61,25 @@ body {
     width: 100%;
     height: 100%;
     background: url('../assets/images/background.jpg') center/cover no-repeat;
-    /* NO FILTER - Image is clear */
 }
 
-/* Very light overlay for text readability only */
+/* Clear Overlay (No tint hiding the video) */
 .overlay {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(135deg, rgba(245, 245, 240, 0.3) 0%, rgba(245, 245, 240, 0.1) 100%);
+    background: transparent;
     z-index: -1;
     pointer-events: none;
 }
 
-/* Glassmorphism - Light theme */
+/* Glassmorphism Cards */
 .glass {
     background: var(--glass-bg);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
     border: 1px solid var(--glass-border);
     border-radius: 24px;
     box-shadow: var(--glass-shadow);
@@ -100,9 +98,9 @@ nav {
 }
 
 nav.scrolled {
-    background: rgba(245, 245, 240, 0.95);
+    background: rgba(255, 255, 255, 0.9);
     backdrop-filter: blur(20px);
-    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
     padding: 1rem 2rem;
 }
 
@@ -121,6 +119,7 @@ nav.scrolled {
     color: var(--text-dark);
     text-decoration: none;
     letter-spacing: -0.02em;
+    text-shadow: 0 1px 4px rgba(255, 255, 255, 0.8);
 }
 
 .nav-brand span {
@@ -135,11 +134,12 @@ nav.scrolled {
 }
 
 .nav-links a {
-    color: var(--text-medium);
+    color: var(--text-dark);
     text-decoration: none;
     font-size: 0.9rem;
-    font-weight: 500;
+    font-weight: 600;
     transition: color 0.3s ease;
+    text-shadow: 0 1px 3px rgba(255, 255, 255, 0.8);
 }
 
 .nav-links a:hover {
@@ -154,7 +154,7 @@ nav.scrolled {
     align-items: center;
     width: 45px;
     height: 45px;
-    background: rgba(255, 255, 255, 0.8);
+    background: rgba(255, 255, 255, 0.85);
     border: 1px solid rgba(0, 0, 0, 0.1);
     border-radius: 12px;
     cursor: pointer;
@@ -163,7 +163,7 @@ nav.scrolled {
 }
 
 .mobile-menu-btn:hover {
-    background: rgba(255, 255, 255, 1);
+    background: #ffffff;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
@@ -194,7 +194,7 @@ nav.scrolled {
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(245, 245, 240, 0.98);
+    background: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(20px);
     z-index: 999;
     display: flex;
@@ -236,6 +236,7 @@ nav.scrolled {
     justify-content: center;
     padding: 8rem 2rem 4rem;
     position: relative;
+    background: transparent;
 }
 
 .hero-content {
@@ -247,11 +248,11 @@ nav.scrolled {
 
 .hero-card {
     background: rgba(255, 255, 255, 0.85);
-    backdrop-filter: blur(20px);
-    border: 1px solid rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.7);
     border-radius: 30px;
     padding: 4rem 3rem;
-    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
 }
 
 .hero-badge {
@@ -260,7 +261,7 @@ nav.scrolled {
     gap: 0.5rem;
     padding: 0.6rem 1.2rem;
     background: rgba(212, 175, 55, 0.15);
-    border: 1px solid rgba(212, 175, 55, 0.3);
+    border: 1px solid rgba(212, 175, 55, 0.4);
     border-radius: 50px;
     font-size: 0.85rem;
     color: var(--accent);
@@ -314,9 +315,9 @@ nav.scrolled {
 
 .hero-subtitle {
     font-size: clamp(1rem, 2.5vw, 1.25rem);
-    color: var(--text-light);
+    color: var(--text-medium);
     margin-bottom: 2rem;
-    font-weight: 400;
+    font-weight: 500;
     max-width: 600px;
     margin-left: auto;
     margin-right: auto;
@@ -354,32 +355,33 @@ nav.scrolled {
 
 .btn-primary {
     background: var(--text-dark);
-    color: white;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    color: #ffffff;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
 .btn-primary:hover {
     transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
-    background: #333;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+    background: #333333;
 }
 
 .btn-secondary {
     background: rgba(255, 255, 255, 0.9);
     color: var(--text-dark);
-    border: 1px solid rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(0, 0, 0, 0.15);
 }
 
 .btn-secondary:hover {
-    background: white;
-    border-color: rgba(0, 0, 0, 0.2);
+    background: #ffffff;
+    border-color: rgba(0, 0, 0, 0.25);
     transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 /* Sections */
 section {
     padding: 5rem 2rem;
+    background: transparent;
 }
 
 .container {
@@ -394,13 +396,14 @@ section {
 
 .section-eyebrow {
     font-family: 'JetBrains Mono', monospace;
-    font-size: 0.8rem;
+    font-size: 0.85rem;
     color: var(--accent);
     text-transform: uppercase;
     letter-spacing: 0.15em;
     margin-bottom: 0.75rem;
     display: block;
-    font-weight: 500;
+    font-weight: 600;
+    text-shadow: 0 1px 3px rgba(255, 255, 255, 0.9);
 }
 
 .section-title {
@@ -408,11 +411,12 @@ section {
     font-size: clamp(1.75rem, 4vw, 2.5rem);
     font-weight: 700;
     color: var(--text-dark);
+    text-shadow: 0 1px 4px rgba(255, 255, 255, 0.9);
 }
 
 /* Message Section */
 .message-section {
-    background: var(--bg-color);
+    background: transparent;
 }
 
 .message-center {
@@ -425,7 +429,7 @@ section {
     max-width: 800px;
     padding: 3rem;
     text-align: center;
-    background: rgba(255, 255, 255, 0.9);
+    background: rgba(255, 255, 255, 0.85);
 }
 
 .ricah-name {
@@ -439,7 +443,7 @@ section {
 .message-text {
     font-size: 1.05rem;
     line-height: 1.9;
-    color: var(--text-medium);
+    color: var(--text-dark);
     text-align: left;
 }
 
@@ -453,7 +457,7 @@ section {
 
 /* Memories Section */
 .memories-section {
-    background: white;
+    background: transparent;
 }
 
 .gallery-grid {
@@ -470,13 +474,13 @@ section {
     aspect-ratio: 1;
     cursor: pointer;
     transition: all 0.3s ease;
-    background: var(--bg-light);
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    background: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
 }
 
 .memory-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
 }
 
 .memory-card img {
@@ -496,7 +500,7 @@ section {
     left: 0;
     right: 0;
     padding: 2rem 1.5rem 1.5rem;
-    background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.85), transparent);
     transform: translateY(100%);
     transition: transform 0.4s ease;
 }
@@ -508,7 +512,7 @@ section {
 .memory-title {
     font-family: 'Playfair Display', serif;
     font-size: 1.25rem;
-    color: white;
+    color: #ffffff;
     margin-bottom: 0.25rem;
 }
 
@@ -520,7 +524,7 @@ section {
 
 /* Wishes Section */
 .wishes-section {
-    background: var(--bg-color);
+    background: transparent;
 }
 
 .wishes-grid {
@@ -534,13 +538,13 @@ section {
     padding: 2rem;
     text-align: center;
     transition: all 0.3s ease;
-    background: rgba(255, 255, 255, 0.8);
+    background: rgba(255, 255, 255, 0.85);
 }
 
 .wish-card:hover {
     transform: translateY(-3px);
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
-    background: white;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+    background: rgba(255, 255, 255, 0.95);
 }
 
 .wish-icon {
@@ -558,14 +562,14 @@ section {
 }
 
 .wish-text {
-    color: var(--text-light);
+    color: var(--text-medium);
     font-size: 0.95rem;
     line-height: 1.6;
 }
 
 /* Friendship Section */
 .friendship-section {
-    background: linear-gradient(135deg, var(--bg-light) 0%, white 100%);
+    background: transparent;
     text-align: center;
 }
 
@@ -573,7 +577,7 @@ section {
     max-width: 800px;
     margin: 0 auto;
     padding: 3rem;
-    background: rgba(255, 255, 255, 0.95);
+    background: rgba(255, 255, 255, 0.85);
 }
 
 .friendship-quote {
@@ -592,12 +596,12 @@ section {
     position: absolute;
     top: -2rem;
     left: -1rem;
-    color: rgba(212, 175, 55, 0.2);
+    color: rgba(212, 175, 55, 0.25);
     font-family: 'Playfair Display', serif;
 }
 
 .friendship-text {
-    color: var(--text-medium);
+    color: var(--text-dark);
     font-size: 1rem;
     line-height: 1.7;
     margin-bottom: 2rem;
@@ -624,12 +628,13 @@ section {
 }
 
 .stat-label {
-    color: var(--text-light);
+    color: var(--text-medium);
     font-size: 0.8rem;
     text-transform: uppercase;
     letter-spacing: 0.1em;
     margin-top: 0.5rem;
     display: block;
+    font-weight: 600;
 }
 
 /* Music Player */
@@ -646,10 +651,10 @@ section {
     border-radius: 50%;
     background: var(--text-dark);
     border: none;
-    color: white;
+    color: #ffffff;
     font-size: 1.5rem;
     cursor: pointer;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
     transition: all 0.3s ease;
     display: flex;
     align-items: center;
@@ -667,16 +672,17 @@ section {
 }
 
 @keyframes pulse-btn {
-    0%, 100% { box-shadow: 0 4px 20px rgba(212, 175, 55, 0.4); }
-    50% { box-shadow: 0 4px 40px rgba(212, 175, 55, 0.6); }
+    0%, 100% { box-shadow: 0 4px 20px rgba(212, 175, 55, 0.5); }
+    50% { box-shadow: 0 4px 40px rgba(212, 175, 55, 0.8); }
 }
 
 /* Footer */
 footer {
     padding: 3rem 2rem;
     text-align: center;
-    background: var(--text-dark);
-    color: white;
+    background: rgba(26, 26, 26, 0.9);
+    backdrop-filter: blur(10px);
+    color: #ffffff;
 }
 
 .footer-text {
@@ -690,7 +696,7 @@ footer {
 }
 
 .footer-subtext {
-    color: rgba(255, 255, 255, 0.6);
+    color: rgba(255, 255, 255, 0.7);
     font-size: 0.9rem;
 }
 
