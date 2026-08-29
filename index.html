@@ -672,7 +672,7 @@
                     </div>
                 </div>
                 <div class="memory-card glass reveal">
-                    <img src="assets/images/memory1.jpg" alt="Memory 1" onerror="this.src='https://via.placeholder.com/400?text=Youth+Empowerment'">
+                    <img src="assets/images/IMG_5990.JPG" alt="Memory 1" onerror="this.src='https://via.placeholder.com/400?text=Youth+Empowerment'">
                     <div class="memory-overlay">
                         <h3 class="memory-title">Youth Empowerment</h3>
                         <span class="memory-date">Building Leadership Skills</span>
@@ -686,14 +686,14 @@
                     </div>
                 </div>
                 <div class="memory-card glass reveal">
-                    <img src="assets/images/memory3.jpg" alt="Memory 3" onerror="this.src='https://via.placeholder.com/400?text=Economic+Resilience'">
+                    <img src="assets/images/IMG_5991.JPG" alt="Memory 3" onerror="this.src='https://via.placeholder.com/400?text=Economic+Resilience'">
                     <div class="memory-overlay">
                         <h3 class="memory-title">Economic Resilience</h3>
                         <span class="memory-date">Local Farmers & Business Focus</span>
                     </div>
                 </div>
                 <div class="memory-card glass reveal">
-                    <img src="assets/images/memory4.jpg" alt="Memory 4" onerror="this.src='https://via.placeholder.com/400?text=Civic+Accountability'">
+                    <img src="assets/images/IMG_5989 (1).JPG" alt="Memory 4" onerror="this.src='https://via.placeholder.com/400?text=Civic+Accountability'">
                     <div class="memory-overlay">
                         <h3 class="memory-title">Civic Accountability</h3>
                         <span class="memory-date">Transparent Governance</span>
@@ -829,56 +829,6 @@
                 if (entry.isIntersecting) entry.target.classList.add('active');
             });
         }, { threshold: 0.1 });
-
-        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-
-        let isPlaying = false;
-        const musicBtn = document.getElementById('musicBtn');
-        const bgMusic = document.getElementById('bgMusic');
-
-        musicBtn.addEventListener('click', () => {
-            if (isPlaying) {
-                bgMusic.pause();
-                musicBtn.textContent = '🎵';
-            } else {
-                bgMusic.play().catch(e => console.log('Audio failed:', e));
-                musicBtn.textContent = '🎶';
-            }
-            isPlaying = !isPlaying;
-        });
-
-        const canvas = document.getElementById('confetti-canvas');
-        const ctx = canvas.getContext('2d');
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
-
-        const particles = [];
-        const colors = ['#6366f1', '#a5b4fc', '#fbbf24', '#f59e0b', '#ffffff'];
-
-        class Particle {
-            constructor() {
-                this.x = Math.random() * canvas.width;
-                this.y = -10;
-                this.size = Math.random() * 10 + 5;
-                this.speedY = Math.random() * 3 + 2;
-                this.speedX = Math.random() * 2 - 1;
-                this.color = colors[Math.floor(Math.random() * colors.length)];
-                this.rotation = Math.random() * 360;
-            }
-            update() {
-                this.y += this.speedY;
-                this.x += this.speedX;
-                this.rotation += 5;
-            }
-            draw() {
-                ctx.save();
-                ctx.translate(this.x, this.y);
-                ctx.rotate(this.rotation * Math.PI / 180);
-                ctx.fillStyle = this.color;
-                ctx.fillRect(-this.size/2, -this.size/2, this.size, this.size);
-                ctx.restore();
-            }
-        }
 
         function animate() {
             ctx.clearRect(0, 0, canvas.width, canvas.height);
